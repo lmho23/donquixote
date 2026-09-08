@@ -58,6 +58,8 @@ img {
 
     max-width: 800px;
     margin-bottom: 60px;
+
+    color: white;
 }
 
 
@@ -316,9 +318,7 @@ img {
     position: absolute;
 
     top: 65px;
-    left: 50%;
-
-    transform: translateX(-50%);
+    left: 8%;
 
     z-index: 2;
 
@@ -448,7 +448,7 @@ img {
 
     right:30px;
 
-    top:30px;
+    top:130px;
 
     z-index:6;
 
@@ -614,19 +614,21 @@ img {
 .timeline {
     position: relative;
 
+    width: 100%;
+
     margin-top: 35px;
-    margin-left: 20px;
+
+    padding-left: 0;
 }
 
 
 /* 세로선 */
-
 .timeline::before {
     content: "";
 
     position: absolute;
 
-    left: 45px;
+    left: 100px;
     top: 10px;
     bottom: 10px;
 
@@ -636,43 +638,48 @@ img {
 }
 
 
+/* 한 개의 행적 */
 .timelineItem {
     position: relative;
 
-    display: flex;
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    width: 100%;
 
     margin-bottom: 35px;
 }
 
 
 /* 날짜 */
-
 .timelineDate {
-    width: 90px;
+    position: relative;
 
-    flex-shrink: 0;
+    width: 100%;
+
+    padding-right: 25px;
 
     font-size: 17px;
     font-weight: bold;
 
-    position: relative;
+    text-align: left;
 
     z-index: 2;
 }
 
 
 /* 타임라인 점 */
-
 .timelineDate::after {
     content: "";
 
     position: absolute;
 
-    right: 37px;
+    right: -6px;
     top: 6px;
 
-    width: 11px;
-    height: 11px;
+    width: 12px;
+    height: 12px;
 
     background-color: #333;
 
@@ -681,11 +688,17 @@ img {
 
 
 /* 내용 */
-
 .timelineContent {
-    padding-left: 20px;
+    min-width: 0;
+
+    padding-left: 30px;
+    padding-right: 10px;
 
     font-size: 16px;
+
+    white-space: normal;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 
 
@@ -768,7 +781,7 @@ img {
 #innTitle {
     position: absolute;
 
-    top: 100px;
+    top: 80px;
     left: 50%;
 
     transform: translateX(-50%);
@@ -777,13 +790,15 @@ img {
 
     font-size: 45px;
     letter-spacing: 12px;
+
+    color: #bbb;
 }
 
 
 #innIntro {
     position: absolute;
 
-    top: 180px;
+    top: 160px;
     left: 50%;
 
     transform: translateX(-50%);
@@ -955,8 +970,12 @@ img {
 }
 
 #tableButton {
-    left: 48%;
-    bottom: 18%;
+    position: absolute;
+
+    left: 16%;
+    bottom: 30%;
+
+    z-index: 5;
 }
 
 #fireplaceButton {
@@ -1199,4 +1218,2933 @@ img {
             translate(-50%, -50%)
             scale(4);
     }
+}
+
+/* =========================
+   모바일 - 대걸레 위치 조정
+========================= */
+
+@media (max-width: 768px) {
+
+    #mopArea {
+        left: -3%;
+        right: auto;
+        bottom: 8%;
+    }
+
+}
+
+/* =========================
+   모바일 - 시체 보관소 제목
+========================= */
+
+@media (max-width: 768px) {
+
+    #morgueChapter {
+        left: 0;
+        right: 0;
+        width: 100%;
+
+        padding: 0 15px;
+
+        text-align: center;
+
+        font-size: 14px;
+
+        white-space: nowrap;
+    }
+
+    #morgueTitle {
+        left: 0;
+        right: 0;
+        width: 100%;
+
+        padding: 0 15px;
+
+        text-align: center;
+
+        font-size: 28px;
+
+        letter-spacing: 3px;
+
+        white-space: nowrap;
+    }
+
+}
+
+/* =========================
+   모바일 - 행적 기록
+========================= */
+
+@media (max-width: 768px) {
+
+    #recordModal .documentPaper {
+        width: 94vw;
+        height: 90vh;
+
+        padding: 45px 20px 30px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    #recordModal .documentPaper p,
+    #recordModal .documentPaper div {
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: keep-all;
+
+        width: 100%;
+        max-width: 100%;
+
+        line-height: 1.8;
+    }
+
+    #recordModal .documentPaper h2 {
+        font-size: 23px;
+        letter-spacing: 3px;
+        white-space: normal;
+    }
+
+}
+
+/* =========================
+   초반 산초 대화창 글자색 고정
+========================= */
+
+#guideScene #dialogue {
+    color: #eeeeee !important;
+}
+
+#guideScene #speaker {
+    color: #dddddd !important;
+}
+
+#guideScene #text {
+    color: #eeeeee !important;
+}
+
+#guideScene #nextButton {
+    color: #eeeeee !important;
+}
+
+/* =========================
+   벽난로 조사 대화창
+========================= */
+
+#fireplaceDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background-color: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 30;
+}
+
+
+#fireplaceSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+    color: #ddd;
+}
+
+
+#fireplaceText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+
+    color: #eee;
+}
+
+
+#fireplaceNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* hidden은 무조건 숨기기 */
+.hidden {
+    display: none !important;
+}
+
+/* 여관이 숨겨져 있으면 내부 오브젝트도 전부 숨기기 */
+#innScene.hidden #mopArea {
+    display: none !important;
+}
+
+#tableDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background-color: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 30;
+}
+
+#tableSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+    color: #ddd;
+}
+
+#tableText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+
+    color: #eee;
+}
+
+#tableNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* =========================
+   수첩 버튼
+========================= */
+
+#notebookButton {
+    position: fixed;
+    right: 30px;
+    top: 30px;
+
+    padding: 12px 20px;
+
+    background-color: rgba(20, 20, 20, 0.9);
+    color: white;
+
+    border: 1px solid #aaa;
+    border-radius: 4px;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    cursor: pointer;
+    z-index: 8000;
+}
+
+#notebookButton:hover {
+    background-color: rgba(60, 60, 60, 0.95);
+}
+
+/* =========================
+   수첩 화면
+========================= */
+
+#notebookModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(0, 0, 0, 0.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9000;
+}
+
+#notebook {
+    position: relative;
+
+    width: 75vw;
+    height: 80vh;
+
+    max-width: 1000px;
+
+    padding: 50px 60px;
+
+    background-color: #e8dfc9;
+    color: #222;
+
+    border: 2px solid #6b5b3e;
+
+    overflow-y: auto;
+
+    font-family: "Malgun Gothic", sans-serif;
+}
+
+#notebook h2 {
+    text-align: center;
+
+    margin-top: 0;
+    margin-bottom: 40px;
+
+    font-size: 30px;
+    letter-spacing: 8px;
+}
+
+#notebook h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #777;
+
+    padding-bottom: 10px;
+}
+
+#notebookContent {
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+#closeNotebook {
+    position: absolute;
+
+    top: 15px;
+    right: 20px;
+
+    border: none;
+    background: transparent;
+
+    color: #333;
+
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+#closeNotebook:hover {
+    color: darkred;
+}
+
+/* =========================
+   수첩 기록
+========================= */
+
+.notebookRecords {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.notebookRecordButton {
+    width: 100%;
+    padding: 15px 20px;
+
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #222;
+
+    border: none;
+    border-bottom: 1px solid #8b7c60;
+
+    text-align: left;
+
+    font-size: 16px;
+    font-family: inherit;
+
+    cursor: pointer;
+}
+
+.notebookRecordButton:hover {
+    background-color: rgba(80, 60, 30, 0.12);
+}
+
+/* =========================
+   수첩 - 단서
+========================= */
+
+.notebookClue {
+    margin-top: 15px;
+    padding: 18px 20px;
+
+    border-left: 3px solid #6b5b3e;
+
+    background-color: rgba(80, 60, 30, 0.08);
+
+    color: #222;
+}
+
+.notebookClue strong {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 18px;
+}
+
+.notebookClue p {
+    margin: 7px 0;
+
+    line-height: 1.8;
+}
+
+#visitLogViewer {
+    position: relative;
+    width: 90vw;
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(10, 10, 10, 0.97);
+}
+
+#visitLogImage {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+#showRingButton {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* =========================
+   금반지 → 여관 주인 대화창
+========================= */
+
+#ringDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background-color: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 30;
+}
+
+#ringSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+    color: #ddd;
+}
+
+#ringText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+
+    color: #eee;
+}
+
+#ringNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* =========================
+   CHAPTER 2 - 서재
+========================= */
+
+#studyScene {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background-color: #111;
+}
+
+#studyBackground {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+#studyChapter {
+    position: absolute;
+
+    top: 40px;
+    left: 50px;
+
+    color: #aaa;
+
+    font-size: 14px;
+    letter-spacing: 4px;
+
+    z-index: 3;
+}
+
+#studyTitle {
+    position: absolute;
+
+    top: 80px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: #ddd;
+
+    font-family: serif;
+    font-size: 45px;
+    letter-spacing: 12px;
+
+    z-index: 3;
+}
+
+#studyDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background-color: rgba(10, 10, 10, 0.95);
+
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 30;
+}
+
+#studySpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+#studyText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+#studyNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* =========================
+   CHAPTER 2 - 서재
+========================= */
+
+#studyScene {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #111;
+}
+
+#studyBackground {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+#studyChapter {
+    position: absolute;
+    top: 35px;
+    left: 45px;
+    z-index: 3;
+
+    color: #aaa;
+    letter-spacing: 4px;
+}
+
+#studyTitle {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    color: white;
+    font-family: serif;
+    font-size: 42px;
+    letter-spacing: 10px;
+}
+
+
+/* 조사 버튼 */
+
+.studyObject {
+    position: absolute;
+    z-index: 5;
+
+    padding: 12px 18px;
+
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+#bookshelfButton {
+    left: 20%;
+    top: 45%;
+}
+
+#bookSafeButton {
+    left: 65%;
+    top: 48%;
+}
+
+
+/* 입장 대화 */
+
+#studyDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 30;
+}
+
+#studySpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+#studyText {
+    font-size: 18px;
+    line-height: 1.8;
+    padding-right: 120px;
+}
+
+#studyNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+
+/* 조사창 */
+
+.studyModal {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.8);
+
+    z-index: 50;
+}
+
+.studyModalContent {
+    position: relative;
+
+    width: 600px;
+    max-width: 90%;
+
+    padding: 40px;
+
+    background: #171717;
+    color: #eee;
+
+    border: 1px solid #777;
+
+    line-height: 1.8;
+}
+
+.studyClose {
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    background: transparent;
+    border: none;
+
+    color: white;
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+.survivingBooks {
+    margin: 30px 0;
+    padding: 20px;
+
+    border-top: 1px solid #555;
+    border-bottom: 1px solid #555;
+
+    font-size: 18px;
+}
+
+.studyObservation {
+    color: #aaa;
+}
+
+
+/* 책 금고 */
+
+#bookSafeInput {
+    display: block;
+
+    width: 150px;
+
+    margin: 30px auto 15px;
+    padding: 12px;
+
+    background: #080808;
+    color: white;
+
+    border: 1px solid #777;
+
+    text-align: center;
+    font-size: 28px;
+    letter-spacing: 10px;
+}
+
+#openBookSafe {
+    display: block;
+
+    margin: auto;
+    padding: 10px 25px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+#bookSafeMessage {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#finishInnButton {
+    position: absolute;
+
+    right: 50px;
+    bottom: 50px;
+
+    z-index: 100;
+
+    padding: 15px 25px;
+
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+
+    border: 1px solid #aaa;
+
+    font-size: 17px;
+    cursor: pointer;
+}
+
+#studyScene:not(.hidden) {
+    display: block !important;
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 500 !important;
+    background: #111 !important;
+}
+
+#innEndDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 100;
+}
+
+#innEndSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+#innEndText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+#innEndNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+
+    z-index: 110;
+}
+
+#safeNote {
+    margin-top: 30px;
+    padding: 25px;
+
+    background: #e7dfc8;
+    color: #222;
+
+    border: 1px solid #8f8265;
+
+    font-family: serif;
+    line-height: 1.9;
+
+    text-align: center;
+}
+
+#safeNotePaper {
+    position: relative;
+
+    width: 420px;
+    max-width: 85%;
+
+    padding: 50px 40px;
+
+    background: #ddd1ad;
+    color: #29251d;
+
+    border: 1px solid #8e8060;
+
+    font-family: serif;
+    font-size: 18px;
+    line-height: 2;
+
+    text-align: center;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+#safeNotePaper p {
+    margin: 25px 0;
+}
+
+.safeNoteStars {
+    margin: 10px 0 25px;
+    letter-spacing: 10px;
+}
+
+#furnaceButton {
+    left: 42%;
+    top: 68%;
+}
+
+#diaryPaper {
+    position: relative;
+
+    width: 520px;
+    max-width: 85%;
+    max-height: 85vh;
+
+    padding: 50px 45px;
+
+    overflow-y: auto;
+
+    background: #b9c9cf;
+    color: #242424;
+
+    border: 1px solid #718087;
+
+    font-family: serif;
+    font-size: 17px;
+    line-height: 1.9;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+#diaryPaper h3 {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    text-align: center;
+    letter-spacing: 4px;
+}
+
+#diaryPaper p {
+    margin: 22px 0;
+}
+
+#closeDiary {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+
+    z-index: 10001;
+
+    border: none;
+    background: transparent;
+
+    color: #222;
+    font-size: 30px;
+
+    cursor: pointer;
+}
+
+.diaryCut {
+    color: #555;
+    text-align: center;
+    font-size: 14px;
+}
+
+/* 소각로 버튼 클릭 문제 해결 */
+#furnaceButton {
+    position: absolute;
+
+    left: 42%;
+    top: 58%;
+
+    z-index: 40 !important;
+    pointer-events: auto !important;
+
+    padding: 12px 18px;
+
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+
+/* 일기 팝업 */
+#diaryModal {
+    position: fixed !important;
+
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    z-index: 10000 !important;
+}
+
+#diaryModal.hidden {
+    display: none !important;
+}
+
+#finishStudyButton {
+    position: absolute;
+
+    left: 50%;
+    bottom: 45px;
+
+    transform: translateX(-50%);
+
+    z-index: 45;
+
+    padding: 14px 35px;
+
+    background: rgba(10, 10, 10, 0.9);
+    color: white;
+
+    border: 1px solid #888;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+
+#studyEndDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 100;
+}
+
+
+#studyEndSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+#studyEndText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+
+#studyEndNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* =========================
+   CHAPTER 3 - 풍차
+========================= */
+
+#windmillScene {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #111;
+}
+
+
+#windmillBackground {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 0;
+}
+
+
+#windmillChapter {
+    position: absolute;
+
+    top: 35px;
+    left: 45px;
+
+    z-index: 3;
+
+    color: #aaa;
+
+    letter-spacing: 4px;
+}
+
+
+#windmillTitle {
+    position: absolute;
+
+    top: 70px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 3;
+
+    color: white;
+
+    font-family: serif;
+    font-size: 42px;
+
+    letter-spacing: 10px;
+}
+
+
+#windmillDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 100;
+}
+
+
+#windmillSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+#windmillText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+
+#windmillNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* 풍차 조사 버튼 공통 */
+
+.windmillObject {
+    position: absolute;
+
+    z-index: 20;
+
+    padding: 11px 17px;
+
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+
+    font-size: 15px;
+}
+
+
+/* 임시 위치 - 배경에 맞춰 나중에 조정 */
+
+#windmillInfoButton {
+    left: 10%;
+    top: 35%;
+}
+
+#windmillCrackButton {
+    left: 43%;
+    top: 55%;
+}
+
+#windmillDoorButton {
+    left: 58%;
+    top: 55%;
+}
+
+#windmillBirdButton {
+    left: 35%;
+    top: 75%;
+}
+
+#windmillCartButton {
+    right: 10%;
+    top: 65%;
+}
+
+#windmillBlades {
+    position: absolute;
+
+    /* 배경 풍차의 중심에 맞춰 조정 */
+    left: 57%;
+    top: 45%;
+
+    width: 500px;
+
+    /* 이미지의 중심을 회전축으로 맞춤 */
+    transform-origin: center center;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation: windmillSpin 15s linear infinite;
+}
+
+@keyframes windmillSpin {
+
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.windmillModal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.85);
+
+    z-index: 10000;
+}
+
+.windmillInfoPaper {
+    position: relative;
+
+    width: 600px;
+    max-width: 85%;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 45px;
+
+    background: #d8cfb4;
+    color: #252219;
+
+    border: 1px solid #81765c;
+
+    font-family: serif;
+    font-size: 17px;
+    line-height: 1.8;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+.windmillInfoPaper h2 {
+    text-align: center;
+    margin: 0 0 35px;
+    letter-spacing: 4px;
+
+    border-bottom: 1px solid #81765c;
+    padding-bottom: 20px;
+}
+
+.windmillInfoPaper p {
+    margin: 25px 0;
+}
+
+.windmillClose {
+    position: absolute;
+
+    right: 15px;
+    top: 10px;
+
+    border: none;
+    background: transparent;
+
+    color: #252219;
+
+    font-size: 30px;
+    cursor: pointer;
+}
+
+#windmillDoorSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#windmillDoorText {
+    font-size: 18px;
+    line-height: 1.8;
+    min-height: 70px;
+}
+
+#windmillDoorNext {
+    display: block;
+    margin-left: auto;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+#windmillBirdContent {
+    position: relative;
+
+    width: 650px;
+    max-width: 90%;
+
+    padding: 35px;
+
+    background: #151515;
+    color: white;
+
+    border: 1px solid #666;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+
+#windmillBirdImage {
+    display: block;
+
+    width: 100%;
+    max-height: 380px;
+
+    object-fit: contain;
+
+    margin: 10px auto 25px;
+}
+
+
+#windmillBirdSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+
+#windmillBirdText {
+    min-height: 65px;
+
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+
+#windmillBirdNext {
+    display: block;
+
+    margin-left: auto;
+    margin-top: 20px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+#windmillCartSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#windmillCartText {
+    min-height: 70px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+#windmillCartNext {
+    display: block;
+    margin-left: auto;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+#windmillCrackContent {
+    position: relative;
+
+    width: 600px;
+    max-width: 90%;
+
+    padding: 40px;
+
+    background: #151515;
+    color: white;
+
+    border: 1px solid #666;
+}
+
+
+#windmillCrackSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+#windmillCrackText {
+    min-height: 80px;
+
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+
+#windmillCrackNext {
+    display: block;
+
+    margin-left: auto;
+    margin-top: 20px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+
+/* 발견물 기록 */
+
+#crackEvidencePaper {
+    position: relative;
+
+    width: 600px;
+    max-width: 88%;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 45px;
+
+    background: #d3c9ac;
+    color: #262219;
+
+    border: 1px solid #81765c;
+
+    font-family: serif;
+    line-height: 1.8;
+}
+
+
+#crackEvidencePaper h2 {
+    text-align: center;
+
+    margin: 0 0 35px;
+
+    letter-spacing: 5px;
+
+    border-bottom: 1px solid #81765c;
+    padding-bottom: 20px;
+}
+
+
+.evidenceSection {
+    margin: 30px 0;
+}
+
+#windmillBlades.slowBlades {
+    animation-duration: 30s;
+}
+
+#finishWindmillButton {
+    position: absolute;
+
+    left: 50%;
+    bottom: 45px;
+
+    transform: translateX(-50%);
+
+    z-index: 45;
+
+    padding: 14px 35px;
+
+    background: rgba(10, 10, 10, 0.9);
+    color: white;
+
+    border: 1px solid #888;
+
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+#windmillEndDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 100;
+}
+
+
+#windmillEndSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+#windmillEndText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+
+#windmillEndNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+/* ==============================
+   CHAPTER 4 - 목장
+============================== */
+
+#pastureScene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+#pastureBackground {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    left: 0;
+    top: 0;
+
+    z-index: 1;
+}
+
+
+#pastureChapter {
+    position: absolute;
+
+    left: 50%;
+    top: 40px;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    font-size: 18px;
+    letter-spacing: 7px;
+
+    color: #ddd;
+}
+
+
+#pastureTitle {
+    position: absolute;
+
+    left: 50%;
+    top: 75px;
+
+    transform: translateX(-50%);
+
+    z-index: 10;
+
+    font-family: serif;
+    font-size: 42px;
+    letter-spacing: 12px;
+
+    color: white;
+}
+
+
+#pastureDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.94);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 50;
+}
+
+
+#pastureSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+
+#pastureText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+
+#pastureNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+
+    cursor: pointer;
+}
+
+
+.pastureObject {
+    position: absolute;
+
+    z-index: 20;
+
+    padding: 11px 17px;
+
+    background: rgba(0, 0, 0, 0.75);
+    color: white;
+
+    border: 1px solid #777;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+/* 임시 위치 */
+#pastureNoteButton {
+    left: 12%;
+    top: 48%;
+}
+
+#pastureFenceButton {
+    left: 32%;
+    top: 63%;
+}
+
+#pastureSheepButton {
+    right: 23%;
+    top: 55%;
+}
+
+#pastureSceneButton {
+    right: 10%;
+    top: 72%;
+}
+
+#pastureNotePaper {
+    position: relative;
+
+    width: 520px;
+    max-width: 85%;
+
+    padding: 45px 50px;
+
+    background: #d8cfb4;
+    color: #272219;
+
+    border: 1px solid #85795f;
+
+    font-family: serif;
+    font-size: 18px;
+    line-height: 2;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+
+    transform: rotate(-1deg);
+}
+
+
+#pastureNotePaper h2 {
+    margin: 0 0 35px;
+
+    text-align: center;
+
+    font-size: 23px;
+    letter-spacing: 4px;
+
+    border-bottom: 1px solid #85795f;
+    padding-bottom: 18px;
+}
+
+
+#pastureNotePaper p {
+    margin: 25px 0;
+}
+
+
+.pastureNoteLast {
+    margin-top: 40px !important;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    text-align: right;
+}
+
+#pastureSheepSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#pastureSheepText {
+    min-height: 70px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+#pastureSheepNext {
+    display: block;
+    margin-left: auto;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+#pastureFenceSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#pastureFenceText {
+    min-height: 70px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+#pastureFenceNext {
+    display: block;
+    margin-left: auto;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+#pastureEvidenceSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#pastureEvidenceText {
+    min-height: 80px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+#pastureEvidenceNext {
+    display: block;
+    margin-left: auto;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+
+/* 현장 발견물 */
+
+#pastureDiscoveryPaper {
+    position: relative;
+
+    width: 620px;
+    max-width: 88%;
+    max-height: 85vh;
+
+    overflow-y: auto;
+
+    padding: 45px;
+
+    background: #d3c9ac;
+    color: #262219;
+
+    border: 1px solid #81765c;
+
+    font-family: serif;
+    font-size: 17px;
+    line-height: 1.8;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+}
+
+
+#pastureDiscoveryPaper h2 {
+    margin: 0 0 35px;
+
+    text-align: center;
+    letter-spacing: 5px;
+
+    border-bottom: 1px solid #81765c;
+    padding-bottom: 20px;
+}
+
+
+.pastureEvidenceSection {
+    margin: 30px 0;
+}
+
+
+.pastureGroundMessage {
+    margin: 30px auto;
+    padding: 20px;
+
+    text-align: center;
+
+    font-size: 21px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    border-top: 1px solid #81765c;
+    border-bottom: 1px solid #81765c;
+}
+
+#finishPastureButton {
+    position: absolute;
+
+    left: 50%;
+    bottom: 45px;
+
+    transform: translateX(-50%);
+
+    z-index: 45;
+
+    padding: 14px 35px;
+
+    background: rgba(10, 10, 10, 0.9);
+    color: white;
+
+    border: 1px solid #888;
+
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+#pastureEndDialogue {
+    position: absolute;
+
+    left: 5%;
+    right: 5%;
+    bottom: 30px;
+
+    min-height: 150px;
+
+    padding: 25px 30px;
+
+    background: rgba(10, 10, 10, 0.95);
+    color: white;
+
+    border: 1px solid #777;
+
+    z-index: 100;
+}
+
+
+#pastureEndSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+
+#pastureEndText {
+    font-size: 18px;
+    line-height: 1.8;
+
+    padding-right: 120px;
+}
+
+
+#pastureEndNext {
+    position: absolute;
+
+    right: 25px;
+    bottom: 25px;
+
+    padding: 10px 20px;
+
+    background: transparent;
+    color: white;
+
+    border: 1px solid #777;
+    cursor: pointer;
+}
+
+#barberScene {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #f5f3ed;
+    color: #222;
+
+    overflow: hidden;
+}
+
+#barberScene.barberBlackout::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    pointer-events: none;
+    z-index: 20;
+}
+
+#barberScene.barberBlackout #barberDialogue {
+    position: relative;
+    z-index: 30;
+}
+
+.lensButtons {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+
+    margin-top: 30px;
+}
+
+.lensButton {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+    border: 4px solid #333;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.lensButton:hover {
+    transform: scale(1.12);
+
+    box-shadow:
+        0 0 0 4px rgba(0, 0, 0, 0.12);
+}
+
+.blueLens {
+    background: #4169e1;
+}
+
+.yellowLens {
+    background: #f2cc3d;
+}
+
+.redLens {
+    background: #b93636;
+}
+
+.basinDialogue {
+    position: absolute;
+
+    left: 50%;
+    bottom: 35px;
+    transform: translateX(-50%);
+
+    width: min(900px, 90%);
+
+    padding: 20px 25px;
+
+    background: rgba(20, 20, 20, 0.94);
+    border: 2px solid #777;
+
+    color: white;
+
+    z-index: 50;
+}
+
+.basinSpeaker {
+    font-size: 18px;
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.basinDialogueText {
+    font-size: 17px;
+    line-height: 1.7;
+
+    margin-bottom: 18px;
+}
+
+.basinChoices {
+    display: flex;
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.basinChoices button {
+    width: 150px;
+    min-height: 52px;
+
+    border: 1px solid #aaa;
+    background: #222;
+
+    color: white;
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+.basinChoices button:hover {
+    background: #444;
+}
+
+#blueLens::before {
+    content: "● ";
+    color: royalblue;
+}
+
+#yellowLens::before {
+    content: "● ";
+    color: gold;
+}
+
+#redLens::before {
+    content: "● ";
+    color: crimson;
+}
+
+.redMessage {
+    position: fixed;
+
+    left: 50%;
+    top: 43%;
+    transform: translate(-50%, -50%);
+
+    font-size: 90px;
+    font-weight: 900;
+    letter-spacing: 35px;
+
+    color: #b00000;
+
+    text-align: center;
+    white-space: nowrap;
+
+    z-index: 100;
+
+    text-shadow:
+        0 2px 2px rgba(0, 0, 0, 0.15);
+}
+
+#hideScene {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #000;
+
+    color: white;
+}
+
+.hideBlackScreen {
+    position: absolute;
+    inset: 0;
+
+    background: #000;
+}
+
+/* 숨기 선택창 크기 조정 */
+.hideDialogue {
+    width: 650px;
+    max-width: 85%;
+    padding: 18px 22px;
+}
+
+.hideSpeaker {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* 선택지 영역 */
+.hideChoices {
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* 선택지 버튼 */
+.hideChoices button {
+    min-width: 150px;
+    width: auto;
+    min-height: 42px;
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
+.hideFailMessage {
+    padding: 25px 10px;
+
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.8;
+
+    letter-spacing: 2px;
+}
+
+.hideFailMessage strong {
+    font-size: 30px;
+}
+
+#retryHideButton {
+    display: block;
+
+    width: 220px;
+    min-height: 55px;
+
+    margin: 25px auto 0;
+
+    font-size: 17px;
+
+    cursor: pointer;
+}
+
+/* 돈키호테의 마지막 쪽지 글씨 */
+#lastNoteModal,
+#lastNoteModal .modalContent,
+#lastNoteModal .lastNoteText,
+#lastNoteModal p {
+    color: white;
+}
+
+/* =========================
+   FINAL CHAPTER - 풍차 3호기 내부
+========================= */
+
+#killerRoomScene {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #751b1b 0%,
+            #4a0d0d 55%,
+            #1d0505 100%
+        );
+
+    color: white;
+    overflow: hidden;
+}
+
+/* FINAL CHAPTER */
+.killerRoomChapter {
+    position: absolute;
+    top: 45px;
+    left: 60px;
+
+    font-size: 18px;
+    letter-spacing: 5px;
+    color: #d9b5b5;
+}
+
+/* 풍차 3호기 내부 */
+.killerRoomTitle {
+    position: absolute;
+    top: 75px;
+    left: 60px;
+
+    font-size: 38px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* 대화창 */
+.killerRoomDialogue {
+    position: absolute;
+
+    left: 50%;
+    bottom: 55px;
+    transform: translateX(-50%);
+
+    width: 650px;
+    max-width: 85%;
+
+    padding: 20px 25px;
+
+    background: rgba(10, 0, 0, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+
+    color: white;
+}
+
+#killerRoomSpeaker {
+    margin-bottom: 12px;
+
+    font-weight: bold;
+    color: #e8bcbc;
+}
+
+#killerRoomText {
+    line-height: 1.7;
+}
+
+#killerRoomNext {
+    float: right;
+    margin-top: 15px;
+}
+
+/* 풍차 3호기 내부 조사 버튼 */
+
+.killerRoomInvestigation {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.killerInvestigationButton {
+    position: absolute;
+
+    padding: 10px 18px;
+
+    background: rgba(20, 0, 0, 0.82);
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 6px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+}
+
+#displayCaseButton {
+    top: 210px;
+    left: 120px;
+}
+
+#oldNotebookButton {
+    top: 210px;
+    right: 120px;
+}
+
+#workTableButton {
+    top: 390px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.killerInvestigationButton:hover {
+    background: rgba(60, 10, 10, 0.95);
+}
+
+/* =========================
+   수상한 진열장
+========================= */
+
+#displayCaseModal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.88);
+
+    z-index: 1000;
+}
+
+.displayCasePaper {
+    width: 520px;
+    max-width: 80%;
+
+    padding: 30px 35px;
+
+    background: #260606;
+
+    border: 1px solid #854545;
+    box-shadow: 0 0 35px rgba(0, 0, 0, 0.8);
+
+    color: white;
+}
+
+.displayCasePaper h2 {
+    margin-top: 0;
+
+    text-align: center;
+    letter-spacing: 4px;
+
+    color: #e0bcbc;
+}
+
+.displayCaseText {
+    line-height: 1.8;
+}
+
+.victimLabels {
+    margin: 25px 0;
+    padding: 15px;
+
+    text-align: center;
+
+    border-top: 1px solid #754040;
+    border-bottom: 1px solid #754040;
+}
+
+.victimLabels p {
+    display: inline-block;
+
+    margin: 5px 15px;
+
+    letter-spacing: 2px;
+}
+
+.displayCaseDiscovery {
+    margin-top: 25px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+#closeDisplayCase {
+    display: block;
+
+    margin: 25px auto 0;
+    padding: 8px 25px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   낡은 수첩
+========================= */
+
+#oldNotebookModal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    z-index: 1000;
+}
+
+.oldNotebookPaper {
+    width: 560px;
+    max-width: 82%;
+    max-height: 75vh;
+
+    padding: 30px 35px;
+
+    overflow-y: auto;
+
+    background: #d8c6a2;
+    color: #241a13;
+
+    border: 1px solid #7d684a;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+.oldNotebookPaper h2 {
+    margin-top: 0;
+
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+.oldNotebookText {
+    line-height: 1.8;
+}
+
+.notebookEntries {
+    margin: 25px 0;
+    padding: 5px 20px;
+
+    border-left: 2px solid #806b4d;
+}
+
+.notebookEntries p {
+    margin: 20px 0;
+}
+
+.notebookSignature {
+    margin-top: 30px;
+
+    text-align: center;
+}
+
+.nicolasName {
+    margin: 15px 0;
+
+    text-align: center;
+
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 8px;
+}
+
+#closeOldNotebook {
+    display: block;
+
+    margin: 25px auto 0;
+    padding: 8px 25px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   중앙 작업대
+========================= */
+
+#workTableModal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    z-index: 1000;
+}
+
+.workTablePaper {
+    width: 540px;
+    max-width: 82%;
+
+    padding: 30px 35px;
+
+    background: #300707;
+    color: white;
+
+    border: 1px solid #874545;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+}
+
+.workTablePaper h2 {
+    margin-top: 0;
+
+    text-align: center;
+    letter-spacing: 5px;
+
+    color: #e3baba;
+}
+
+.workTableText {
+    line-height: 1.8;
+}
+
+.workTableEvidence {
+    margin: 25px 0;
+    padding: 15px 20px;
+
+    border-left: 2px solid #9b5555;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.workTableDiscovery {
+    margin-top: 25px;
+
+    text-align: center;
+    font-weight: bold;
+}
+
+#closeWorkTable {
+    display: block;
+
+    margin: 25px auto 0;
+    padding: 8px 25px;
+
+    cursor: pointer;
+}
+
+/* 범인 지목 버튼 */
+
+.accuseButton {
+    position: absolute;
+
+    left: 50%;
+    bottom: 70px;
+    transform: translateX(-50%);
+
+    padding: 13px 30px;
+
+    background: #160000;
+    color: white;
+
+    border: 1px solid #c17a7a;
+    border-radius: 5px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    pointer-events: auto;
+}
+
+.accuseButton:hover {
+    background: #3d0808;
+}
+
+/* =========================
+   최종 범인 지목
+========================= */
+
+#accuseModal {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(8, 0, 0, 0.96);
+
+    z-index: 2000;
+}
+
+.accusePanel {
+    width: 620px;
+    max-width: 85%;
+
+    padding: 35px;
+
+    background: #210505;
+    border: 1px solid #7d3434;
+
+    color: white;
+
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.accuseTitle {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.suspectChoices {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.suspectChoice {
+    padding: 15px;
+
+    background: #120202;
+    color: white;
+
+    border: 1px solid #694040;
+
+    font-size: 16px;
+
+    cursor: pointer;
+}
+
+.suspectChoice span {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 12px;
+    color: #bbaaaa;
+}
+
+.suspectChoice:hover {
+    background: #481010;
+    border-color: #c17575;
+}
+
+.accuseResult {
+    margin-top: 30px;
+
+    text-align: center;
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+.retryAccuseButton {
+    display: block;
+
+    margin: 25px auto 0;
+    padding: 9px 22px;
+
+    cursor: pointer;
+}
+
+/* =========================
+   진실 확인 버튼
+========================= */
+
+.truthButton {
+    display: block;
+
+    margin: 25px auto 0;
+    padding: 11px 25px;
+
+    background: #160000;
+    color: white;
+
+    border: 1px solid #b96d6d;
+    border-radius: 5px;
+
+    font-size: 15px;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+}
+
+.truthButton:hover {
+    background: #471010;
+}
+
+
+/* =========================
+   ENDING
+========================= */
+
+#endingScene {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #050505;
+    color: white;
+}
+
+.endingContent {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.endingChapter {
+    position: absolute;
+
+    top: 60px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 17px;
+    letter-spacing: 8px;
+
+    color: #999;
+}
+
+.endingDialogue {
+    width: 650px;
+    max-width: 80%;
+
+    padding: 25px 30px;
+
+    background: rgba(20, 20, 20, 0.9);
+
+    border: 1px solid #555;
+}
+
+#endingSpeaker {
+    margin-bottom: 15px;
+
+    font-weight: bold;
+    color: #ccc;
+}
+
+#endingText {
+    min-height: 70px;
+
+    line-height: 1.8;
+}
+
+#endingNext {
+    float: right;
+
+    margin-top: 20px;
+
+    cursor: pointer;
+}
+
+.finalEndingText {
+    text-align: center;
+
+    padding: 35px 10px;
+
+    font-size: 19px;
+    line-height: 2;
+
+    letter-spacing: 1px;
+}
+
+.finalEndingTitle {
+    margin-top: 50px;
+
+    font-size: 30px;
+    letter-spacing: 10px;
+
+    color: #aaa;
+}
+
+/* 이발소 산초 대화창 위치 */
+#barberDialogue {
+    position: absolute;
+
+    left: 50%;
+    bottom: 50px;
+
+    transform: translateX(-50%);
+
+    width: 650px;
+    max-width: 85%;
+
+    padding: 20px 25px;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+
+    border-radius: 6px;
+
+    z-index: 20;
+}
+
+#barberNext {
+    display: block;
+    margin: 15px 0 0 auto;
 }
