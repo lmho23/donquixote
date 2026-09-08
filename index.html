@@ -1,0 +1,586 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>돈키호테: 죽음 이후</title>
+
+    <!-- O -->
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <img src="./images/sancho.png">
+
+</head>
+
+<body>
+
+    <!-- 게임 전체 화면 -->
+<div id="game">
+
+    <!-- 메인 포스터 -->
+    <div id="poster">
+
+        <img src="images/main-poster.jpg" alt="돈키호테 메인 포스터">
+
+        <button id="posterButton">클릭하여 시작</button>
+
+    </div>
+
+
+    <!-- 오프닝 멘트 -->
+    <div id="opening" class="hidden">
+
+        <div id="openingText">
+
+            여러분은 지금부터 돈키호테가 지나온<br>
+            다섯 개의 공간을 따라가며 사건을 추리하게 됩니다.<br><br>
+
+            돈키호테를 죽인 범인은 누구일까요?<br>
+            단서들이 우리에게 주는 메시지는 무엇일지도<br>
+            고민하며 즐겨주시면 좋겠습니다.<br><br>
+
+            그럼, 진실을 찾아보겠습니다.
+
+        </div>
+
+        <button id="startButton">게임 시작</button>
+
+    </div>
+
+
+    <!-- 안내자 -->
+    <div id="guideScene" class="hidden">
+
+        <div id="character">
+            <img src="images/guide.png" alt="산초의 종자">
+        </div>
+
+        <div id="dialogue">
+
+            <div id="speaker">산초의 종자</div>
+
+            <div id="text"></div>
+
+            <button id="nextButton">계속 ▶</button>
+
+        </div>
+
+    </div> <!-- 안내자 화면 끝 -->
+    
+
+   <!-- 시체 보관소 -->
+    <div id="morgueScene" class="hidden">
+
+    <!-- 배경 -->
+    <img id="morgueBackground"
+         src="images/morgue-bg.jpg"
+         alt="시체 보관소">
+
+    <div id="chapterTitle">
+        CHAPTER 0
+    </div>
+
+    <div id="morgueTitle">
+        시체 보관소
+    </div>
+
+
+    <!-- 돈키호테의 시신 -->
+    <div id="body">
+        <!-- 나중에 시신 이미지 추가 -->
+    </div>
+
+
+    <!-- 조사 자료 버튼 -->
+    <div id="documents">
+
+        <button id="autopsyButton" disabled>
+            부검 소견서
+        </button>
+
+        <button id="suspectButton" disabled>
+            용의자 리스트
+        </button>
+
+        <button id="recordButton" disabled>
+            행적 기록
+        </button>
+
+    </div>
+
+
+    <!-- 종자 대화창 -->
+    <div id="morgueDialogue">
+
+        <div id="morgueSpeaker">
+            산초의 종자
+        </div>
+
+        <div id="morgueText">
+            이 분이 바로 돈키호테입니다. 진짜 이름은 알론소 키하노죠.
+        </div>
+
+        <button id="morgueNext">
+            계속 ▶
+        </button>
+
+    </div>
+
+
+    <!-- 여관으로 이동 -->
+    <button id="nextRoom" class="hidden">
+        여관으로 이동 →
+    </button>
+
+    <!-- 본격적인 조사 시작 안내 -->
+    <div id="investigationGuide" class="hidden">
+
+        <div id="investigationSpeaker">산초의 종자</div>
+
+        <div id="investigationText">
+            수첩에서 다시 한번 확인하실 수 있으니 넘어가도록 하죠.
+        </div>
+
+        <button id="investigationNext">
+            계속 ▶
+        </button>
+
+    </div>
+
+
+    <!-- 부검 소견서 팝업 -->
+    <div id="autopsyModal" class="documentModal hidden">
+
+        <div class="documentPaper">
+
+            <button id="closeAutopsy" class="closeDocument">
+                ×
+            </button>
+
+            <h2>부검 소견서</h2>
+
+            <div class="documentInfo">
+                사건번호 : DQ-0917<br>
+                피해자 : 돈키호테 데 라만차<br>
+                검시관 : 카라스코 박사
+            </div>
+
+            <hr>
+
+            <h3>■ 사망 추정 시각</h3>
+
+            <p>
+                발견 최소 48시간 이전으로 추정.<br>
+                정확한 사망 시각 특정 불가.
+            </p>
+
+            <h3>■ 외부 소견</h3>
+
+            <p>
+                1. 경부에서 밧줄에 의한 흔적이 확인됨.
+                흔적의 각도가 일반적인 경우와 일치하지 않아
+                외부 개입 가능성을 배제할 수 없음.
+            </p>
+
+            <p>
+                2. 신체에서 풍차와의 반복적인 충돌로 추정되는
+                손상이 확인됨.
+            </p>
+
+            <p>
+                3. 일부 상처의 형태가 단순한 낙하나 충돌에 의한
+                것으로 보기 어려워 추가 조사가 필요함.
+            </p>
+
+            <h3>■ 종합 소견</h3>
+
+            <p>
+                현재 소견만으로 자살 및 타살 여부를 특정할 수 없음.
+                다만 여러 정황으로 미루어
+                <strong>제3자의 개입 가능성</strong>에 대한
+                추가 조사가 필요함.
+            </p>
+
+            <div class="documentNote">
+                ※ 이하 후속 조사 필요 — 담당 탐정에게 인계함.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 용의자 리스트 팝업 -->
+    <div id="suspectModal" class="documentModal hidden">
+
+        <div class="documentPaper">
+
+            <button id="closeSuspect" class="closeDocument">×</button>
+
+            <h2>용의자 리스트</h2>
+
+            <div class="documentInfo">
+                사건번호 : DQ-0917<br>
+                관련 사건 : 돈키호테 사망 사건<br>
+                분류 : 주요 관계인 및 용의자
+            </div>
+
+            <hr>
+
+
+            <h3>01. 신부 페로 페레스</h3>
+
+            <p>
+                <strong>관계 :</strong> 돈키호테의 지인
+            </p>
+
+            <p>
+                <strong>의심 정황 :</strong><br>
+                돈키호테의 기사도 망상을 치료한다는 명목으로
+                그의 서재에 있던 장서를 불태운 인물.
+            </p>
+
+            <p>
+                <strong>사건 당일 :</strong><br>
+                마을 성당에서 미사를 진행했다는 증언이 확인됨.
+            </p>
+
+            <hr>
+
+
+            <h3>02. 이발사 니콜라스</h3>
+
+            <p>
+                <strong>관계 :</strong> 마을 이발사
+            </p>
+
+            <p>
+                <strong>의심 정황 :</strong><br>
+                돈키호테와 이른바
+                "마법의 투구"를 둘러싼 사건으로 얽혀 있음.
+            </p>
+
+            <p>
+                <strong>사건 당일 :</strong><br>
+                행적 불분명.
+            </p>
+
+            <hr>
+
+
+            <h3>03. 여관 주인</h3>
+
+            <p>
+                <strong>관계 :</strong> 돈키호테가 방문했던 여관의 주인
+            </p>
+
+            <p>
+                <strong>의심 정황 :</strong><br>
+                돈키호테의 요구에 따라 그를 기사로 서임했으나,
+                주변 증언에 따르면 이를 진지하게 받아들인 것은 아니었던 것으로 보임.
+            </p>
+
+            <p>
+                <strong>사건 당일 :</strong><br>
+                추가 조사 필요.
+            </p>
+
+            <hr>
+
+
+            <h3>04. 조카딸 안토니아</h3>
+
+            <p>
+                <strong>관계 :</strong> 돈키호테의 조카
+            </p>
+
+            <p>
+                <strong>의심 정황 :</strong><br>
+                삼촌의 계속되는 기행으로 인해
+                가족의 명예와 생활에 영향을 받고 있었던 것으로 파악됨.
+                유산 문제 역시 확인이 필요함.
+            </p>
+
+            <p>
+                <strong>사건 당일 :</strong><br>
+                추가 조사 필요.
+            </p>
+
+            <hr>
+
+
+            <h3>05. 산초 판사</h3>
+
+            <p>
+                <strong>관계 :</strong> 돈키호테와 가장 가까이 행동했던 인물
+            </p>
+
+            <p>
+                <strong>의심 정황 :</strong><br>
+                사건의 발견자이자 탐정들에게 편지를 보낸 인물.
+                돈키호테의 마지막 행적을 가장 가까이에서 알고 있을 가능성이 있음.
+            </p>
+
+            <p>
+                <strong>사건 당일 :</strong><br>
+                상세 행적 확인 필요.
+            </p>
+
+
+            <div class="documentNote">
+                ※ 모든 인물은 현재 조사 대상이며,
+                본 자료만으로 범인을 특정할 수 없음.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- 돈키호테 행적 기록 팝업 -->
+    <div id="recordModal" class="documentModal hidden">
+
+    <div class="documentPaper">
+
+        <button id="closeRecord" class="closeDocument">×</button>
+
+        <h2>돈키호테 행적 기록</h2>
+
+        <div class="documentInfo">
+            사건번호 : DQ-0917<br>
+            대상 : 돈키호테 데 라만차<br>
+            분류 : 실종 전 행적 조사
+        </div>
+
+        <hr>
+
+        <div class="timeline">
+
+            <div class="timelineItem">
+                <div class="timelineDate">D-5</div>
+                <div class="timelineContent">
+                    <strong>자택 서재</strong>
+                    <p>
+                        자택을 나선 뒤 스스로를
+                        "기사"라 칭하기 시작한 것으로 확인됨.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDate">D-4</div>
+                <div class="timelineContent">
+                    <strong>여관</strong>
+                    <p>
+                        인근 여관 방문.<br>
+                        여관 주인에게 기사 서임식을 요구하고 이를 받음.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDate">D-3</div>
+                <div class="timelineContent">
+                    <strong>서재</strong>
+                    <p>
+                        자택으로 돌아온 뒤 자신의 장서가
+                        소각된 사실을 확인함.
+                        당시 크게 동요했다는 목격담이 있음.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDate">D-2</div>
+                <div class="timelineContent">
+                    <strong>풍차</strong>
+                    <p>
+                        들판의 풍차를 향해 돌진한 것이 목격됨.<br>
+                        이후 행적이 불분명해짐.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDate">D-1</div>
+                <div class="timelineContent">
+                    <strong>목장</strong>
+                    <p>
+                        인근 목장 부근에서 목격됨.
+                        양 떼 사이에서 무언가와 싸우는 듯한 모습을
+                        보았다는 진술이 확보됨.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDate">D-0</div>
+                <div class="timelineContent">
+                    <strong>행적 불명</strong>
+                    <p>
+                        이후 확인된 목격 기록 없음.
+                    </p>
+                </div>
+            </div>
+
+            <div class="timelineItem">
+                <div class="timelineDate">+3</div>
+                <div class="timelineContent">
+                    <strong>발견</strong>
+                    <p>
+                        풍차에서 사망한 상태로 발견됨.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="documentNote">
+            ※ 이발소 방문 기록은 확인되지 않음.<br>
+            그러나 유품 중 이발사와 관련된 놋쇠 대야가 발견되어
+            추가 조사가 필요함.
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- =========================
+     CHAPTER 1. 여관
+========================= -->
+
+<div id="innScene" class="hidden">
+
+    <!-- 여관 배경 -->
+    <img id="innBackground"
+         src="images/inn-bg.jpg"
+         alt="여관 배경">
+
+    <!-- 챕터 표시 -->
+    <div id="innChapter">
+        CHAPTER 1
+    </div>
+
+    <div id="innTitle">
+        여관
+    </div>
+
+    <div id="innIntro">
+        돈키호테가 기사로서 첫발을 내디뎠던 곳.
+    </div>
+
+
+    <!-- 실종 포스터 6개 -->
+    <button id="missingPosterButton" class="innObject">
+    사람을 찾습니다
+    </button>
+
+    <!-- 식탁 -->
+    <button id="tableButton" class="innObject">
+        식탁 조사
+    </button>
+
+
+    <!-- 벽난로 -->
+    <button id="fireplaceButton" class="innObject">
+        벽난로 조사
+    </button>
+
+
+    <!-- 대걸레 조사 오브젝트 -->
+    <div id="mopArea">
+
+        <img id="mopImage"
+             src="images/mop-bucket.png"
+             alt="물통과 대걸레">
+
+        <div id="mopHint">
+            조사하기
+        </div>
+
+    </div>
+
+    <!-- 대걸레 조사 -->
+    <div id="mopDialogue" class="hidden">
+
+        <div id="mopSpeaker">
+            여관 주인
+        </div>
+
+        <div id="mopText">
+            그건 왜요? 청소하시게요?
+        </div>
+
+        <button id="mopNext">
+            계속 ▶
+        </button>
+
+    </div>
+
+    <!-- 여관 안내 대화 -->
+    <div id="innDialogue">
+
+        <div id="innSpeaker">
+            산초의 종자
+        </div>
+
+        <div id="innText">
+            이곳은 돈키호테가 "성"이라 칭했던 여관입니다.
+        </div>
+
+        <button id="innNext">
+            계속 ▶
+        </button>
+
+    </div>
+
+
+    <!-- 실종 포스터 모음 -->
+<div id="missingPosterModal" class="documentModal hidden">
+
+    <div id="posterViewer">
+
+        <button id="closeMissingPoster" class="closeDocument">
+            ×
+        </button>
+
+        <div id="posterViewerTitle">
+            사람을 찾습니다
+        </div>
+
+        <img id="missingPosterImage"
+             src="images/poster1.jpg"
+             alt="실종 포스터">
+
+        <div id="posterControls">
+
+            <button id="previousPoster">
+                ◀ 이전
+            </button>
+
+            <span id="posterNumber">
+                1 / 6
+            </span>
+
+            <button id="nextPoster">
+                다음 ▶
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+
+    </div>
+
+</div>
+
+</div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
