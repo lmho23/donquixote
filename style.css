@@ -1059,7 +1059,7 @@ img {
     left: 15%;
     bottom: 8%;
 
-    width: 220px;
+    width: 180px;
 
     z-index: 5;
 
@@ -1230,6 +1230,7 @@ img {
         left: -3%;
         right: auto;
         bottom: 8%;
+        width: 150px;
     }
 
 }
@@ -4147,4 +4148,14 @@ img {
 #barberNext {
     display: block;
     margin: 15px 0 0 auto;
+}
+
+/* 모바일 - 식탁 버튼 클릭 문제 해결 */
+@media (max-width: 768px) {
+
+    #tableButton {
+        z-index: 20 !important;
+        pointer-events: auto !important;
+    }
+
 }
